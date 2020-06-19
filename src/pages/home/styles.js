@@ -43,6 +43,11 @@ export const Button = styled.button`
   border: none;
   overflow: hidden;
   margin-right: 10px;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `;
 
 export const List = styled.div`
@@ -81,6 +86,14 @@ export const List = styled.div`
     color: rgb(72, 72, 72);
     margin: auto;
     padding: 5px;
+  }
+
+  div {
+    display: flex;
+    justify-content: space-between;
+    margin: 15px auto;
+    width: 100%;
+    max-width: 1100px;
   }
 `;
 

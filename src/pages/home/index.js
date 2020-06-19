@@ -1,20 +1,39 @@
 import React, { useState, useEffect } from "react";
+import { Link, useHistory } from "react-router-dom";
 import api from "../../services/api";
 
 import * as s from "./styles";
 import logo from "../../assets/images/marvel-logo.png";
 
+const apikey = "9bfc4efda5e11865aab4ab84b6dba4a9";
+const hash = "2ca97ce2c9fcd13830a5a6228d2f76e0";
+
 function Home() {
   const [heros, setHeros] = useState([]);
+  const [infopages, setInfopages] = useState([]);
+
+  async function loadHeros(numOffset) {
+    const response = await api.get(
+      `/characters?&orderBy=modified&limit=21&ts=1&apikey=${apikey}&hash=${hash}&offset=${numOffset}`
+    );
+
+    setHeros(response.data.data.results);
+    setInfopages(response.data.data);
+  }
 
   useEffect(() => {
-    async function loadHeros() {
-      const response = await api.get();
-      setHeros(response.data.data.results);
-    }
-
     loadHeros();
   }, []);
+
+  function handlePrev() {
+    let numOffset = infopages.offset - 1;
+    loadHeros(numOffset);
+  }
+
+  function handleNext() {
+    let numOffset = infopages.offset + 1;
+    loadHeros(numOffset);
+  }
 
   return (
     <>
@@ -30,14 +49,16 @@ function Home() {
           <ul>
             {heros.map((hero) => (
               <li key={hero.id}>
-                <s.CardHeader>
-                  <img
-                    src={`${hero.thumbnail.path}/landscape_medium.${hero.thumbnail.extension}`}
-                    alt=""
-                  />
-                  <span>Nome: {hero.name} </span>
-                  <br />
-                </s.CardHeader>
+                <Link to={`/detail/${hero.id}`}>
+                  <s.CardHeader>
+                    <img
+                      src={`${hero.thumbnail.path}/landscape_medium.${hero.thumbnail.extension}`}
+                      alt=""
+                    />
+                    <span>Nome: {hero.name} </span>
+                    <br />
+                  </s.CardHeader>
+                </Link>
 
                 <p>
                   Descrição:{" "}
@@ -48,6 +69,10 @@ function Home() {
               </li>
             ))}
           </ul>
+          <div>
+            <s.Button onClick={handlePrev}>Anterior</s.Button>
+            <s.Button onClick={handleNext}>Proximo</s.Button>
+          </div>
         </s.List>
         <s.Footer>
           <div>
