@@ -53,7 +53,7 @@ function Home() {
                   <s.CardHeader>
                     <img
                       src={`${hero.thumbnail.path}/landscape_medium.${hero.thumbnail.extension}`}
-                      alt=""
+                      alt={`O heroi ${hero.name}`}
                     />
                     <span>Nome: {hero.name} </span>
                     <br />

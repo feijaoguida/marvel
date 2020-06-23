@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+
 import api from "../../services/api";
 
 import * as s from "./styles";
@@ -12,18 +13,21 @@ function Detail({ match }) {
 
   const _id = match.params.id;
 
+  const settings = {
+    dots: true,
+    gutter: 60,
+    overScan: 1,
+    slidesPerRow: 4,
+    virtualList: true,
+  };
+
   useEffect(() => {
     async function loadHero() {
       const response = await api.get(
         `/characters/${_id}?&orderBy=modified&limit=21&ts=1&apikey=${apikey}&hash=${hash}`
       );
       setHero(response.data.data.results);
-      //console.log(hero);
-      console.log(_id);
-      console.log(response.data.data.results);
-      //console.log(state);
     }
-
     loadHero();
   }, [_id]);
 
@@ -32,30 +36,59 @@ function Detail({ match }) {
       <s.Container>
         <s.Header>
           <s.ContentText>
-            <p>UMA LISTA COM SEUS HEROIS MARVEL FAVORITOS.</p>
+            <s.Paragraph>
+              UMA LISTA COM SEUS HEROIS MARVEL FAVORITOS.
+            </s.Paragraph>
             <s.Button>Veja Mais...</s.Button>
             <s.Button>Marvel.com</s.Button>
           </s.ContentText>
         </s.Header>
-        <s.ContentText>
-          <ul>
+        <s.ContainerList>
+          <s.List>
             {hero.map((theHero) => (
-              <li>
-                <img src="" alt="" />
-
-                <p>{theHero.name}</p>
-                <p>
-                  {theHero.description
-                    ? theHero.description
-                    : `Acesse o card para mais informações sobre o ${theHero.name}.`}
-                </p>
-                <p>Filmes</p>
-                <p>series</p>
+              <li key={theHero.id}>
+                <s.DetailHeader>
+                  <img
+                    src={`${theHero.thumbnail.path}/landscape_large.${theHero.thumbnail.extension}`}
+                    alt={`O heroi ${theHero.name}`}
+                  />
+                  <s.Title>
+                    <s.Paragraph>{theHero.name}</s.Paragraph>
+                  </s.Title>
+                </s.DetailHeader>
+                <s.DetailBody>
+                  <s.Description>
+                    <s.TitleItems>Descrição</s.TitleItems>
+                    {theHero.description
+                      ? theHero.description
+                      : `Infelizmente não tenho mais informações sobre ${theHero.name}, mais se você quer ficar por dentro 
+                    do mundo marvel entre no site da Marvel no botão acima para mais informações.`}
+                  </s.Description>
+                  <s.Items>
+                    <s.TitleItems>Comics</s.TitleItems>
+                    <s.BodyItems>
+                      <s.List>
+                        {theHero.comics.items.map((comics) => (
+                          <s.ListItems>{comics.name}</s.ListItems>
+                        ))}
+                      </s.List>
+                    </s.BodyItems>
+                  </s.Items>
+                  <s.Items>
+                    <s.TitleItems>Series</s.TitleItems>
+                    <s.BodyItems>
+                      <s.List>
+                        {theHero.series.items.map((series) => (
+                          <s.ListItems>{series.name}</s.ListItems>
+                        ))}
+                      </s.List>
+                    </s.BodyItems>
+                  </s.Items>
+                </s.DetailBody>
               </li>
             ))}
-            ;
-          </ul>
-        </s.ContentText>
+          </s.List>
+        </s.ContainerList>
         <Link to="/">Voltar</Link>
       </s.Container>
     </>
