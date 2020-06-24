@@ -13,14 +13,6 @@ function Detail({ match }) {
 
   const _id = match.params.id;
 
-  const settings = {
-    dots: true,
-    gutter: 60,
-    overScan: 1,
-    slidesPerRow: 4,
-    virtualList: true,
-  };
-
   useEffect(() => {
     async function loadHero() {
       const response = await api.get(
@@ -59,10 +51,12 @@ function Detail({ match }) {
                 <s.DetailBody>
                   <s.Description>
                     <s.TitleItems>Descrição</s.TitleItems>
-                    {theHero.description
-                      ? theHero.description
-                      : `Infelizmente não tenho mais informações sobre ${theHero.name}, mais se você quer ficar por dentro 
+                    <s.TheDescription>
+                      {theHero.description
+                        ? theHero.description
+                        : `Infelizmente não tenho mais informações sobre ${theHero.name}, mais se você quer ficar por dentro 
                     do mundo marvel entre no site da Marvel no botão acima para mais informações.`}
+                    </s.TheDescription>
                   </s.Description>
                   <s.Items>
                     <s.TitleItems>Comics</s.TitleItems>

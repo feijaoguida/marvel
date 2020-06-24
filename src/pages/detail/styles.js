@@ -50,6 +50,14 @@ export const Button = styled.button`
   }
 `;
 
+export const TheDescription = styled.p`
+  font-size: 1.2em;
+  text-align: center;
+  color: rgb(72, 72, 72);
+  font-weight: 600 !important;
+  margin: 20px;
+`;
+
 export const ContainerList = styled.div`
   margin: 20px 0px;
   width: 100%;
@@ -86,9 +94,21 @@ export const ListItems = styled.li`
   flex-basis: auto;
   align-items: stretch;
   max-width: 30%;
-  margin: auto 3px;
+  margin: 15px 10px !important;
   border-radius: 5px;
-  background-color: #fff;
+  padding: 5px;
+
+  color: rgb(72, 72, 72);
+  font-size: 1.1em;
+  text-align: center;
+  justify-content: center;
+
+  background: linear-gradient(
+    135deg,
+    rgba(254, 0, 0, 1) 0%,
+    rgba(255, 165, 165, 1) 56%,
+    rgba(255, 255, 255, 1) 100%
+  );
 
   -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
   -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
@@ -133,7 +153,7 @@ export const DetailBody = styled.div`
   aling-itens: center;
   flex-direction: column;
   flex-wrap: 1;
-  padding: 15px;
+
   border: none;
   color: black;
 `;
@@ -149,7 +169,9 @@ export const Items = styled.div`
 
 export const TitleItems = styled.p`
   font-size: 2em;
-  color: black;
+  color: rgb(72, 72, 72);
+  text-align: center;
+  width: 100%;
 `;
 
 export const BodyItems = styled.div`
