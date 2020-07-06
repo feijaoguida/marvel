@@ -30,6 +30,7 @@ function Detail({ match }) {
           <s.ContentText>
             <s.Paragraph>
               UMA LISTA COM SEUS HEROIS MARVEL FAVORITOS.
+              --- AGUARDE AINDA EM CONSTRUÇÃO ---
             </s.Paragraph>
             <s.Button>Veja Mais...</s.Button>
             <s.Button>Marvel.com</s.Button>
