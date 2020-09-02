@@ -12,9 +12,9 @@ Para acessar a aplicação em pleno funcionamento acesse..<br />
 ### Recursos.
 
 Foram utilizandos para criar este projeto:
-ReactJs.
-Axios.
-StyledComponents
+- ReactJs.
+- Axios.
+- StyledComponents
 
 Foi consumido API de terceiros [Marvel](https://developer.marvel.com/)
 
