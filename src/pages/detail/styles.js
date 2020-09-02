@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import fundo from "../../assets/images/bannerHeros.jpg";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
@@ -29,7 +30,7 @@ export const ContentText = styled.div`
 `;
 
 export const Paragraph = styled.p`
-  font-size: 2.5em !important;
+  font-size: 2.2em !important;
   color: white !important;
   width: 50%;
   font-weight: 800 !important;
@@ -94,18 +95,19 @@ export const ListItems = styled.li`
   flex-basis: auto;
   align-items: stretch;
   max-width: 30%;
+  min-height: 117px;
   margin: 15px 10px !important;
   border-radius: 5px;
   padding: 5px;
 
   color: rgb(72, 72, 72);
-  font-size: 1.1em;
+  font-size: 0.8em;
   text-align: center;
   justify-content: center;
 
   background: linear-gradient(
     135deg,
-    rgba(254, 0, 0, 1) 0%,
+    rgba(255, 255, 255, 1) 0%,
     rgba(255, 165, 165, 1) 56%,
     rgba(255, 255, 255, 1) 100%
   );
@@ -119,7 +121,6 @@ export const DetailHeader = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  aling-itens: center;
   flex-direction: row;
   border: none;
   color: black;
@@ -133,24 +134,17 @@ export const DetailHeader = styled.div`
 export const Title = styled.div`
   width: 70%;
   background-color: tomato;
-  position: relative;
-
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    border-top: 250px solid #fff;
-    border-right: 100px solid transparent;
-    width: 0;
-  }
+  align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 `;
 
 export const DetailBody = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
-  aling-itens: center;
+  align-items: center;
   flex-direction: column;
   flex-wrap: 1;
 
@@ -172,6 +166,7 @@ export const TitleItems = styled.p`
   color: rgb(72, 72, 72);
   text-align: center;
   width: 100%;
+  margin: 15px auto;
 `;
 
 export const BodyItems = styled.div`
@@ -179,4 +174,19 @@ export const BodyItems = styled.div`
   color: black;
   display: flex;
   flex-direction: row !important;
+`;
+
+export const Linked = styled(Link)`
+  width: 130px;
+  height: 60px;
+  background-color: tomato;
+  position: relative;
+  border: none;
+  overflow: hidden;
+  margin-right: 10px;
+
+  &:hover {
+    opacity: 0.8;
+    cursor: pointer;
+  }
 `;

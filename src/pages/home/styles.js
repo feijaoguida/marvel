@@ -75,10 +75,13 @@ export const List = styled.div`
     border-radius: 5px;
     background-color: #fff;
     padding: 5px;
+    border: 1px solid rgba(0, 0, 0, 0.29);
 
-    -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
-    -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
-    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+    &:hover {
+      -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+      -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+      box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+    }
   }
 
   p {
@@ -116,31 +119,5 @@ export const CardHeader = styled.div`
     font-size: 1.1em;
     font-weight: 800;
     color: rgb(72, 72, 72);
-  }
-`;
-
-export const Footer = styled.footer`
-  width: 100%;
-  background-color: #151515;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-
-  div {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    color: #fff;
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-  }
-
-  img {
-    width: 100px;
-    height: 60px;
   }
 `;

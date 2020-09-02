@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 import api from "../../services/api";
 
 import * as s from "./styles";
-import logo from "../../assets/images/marvel-logo.png";
+import Footer from "../../componets/footer";
 
-const apikey = "9bfc4efda5e11865aab4ab84b6dba4a9";
-const hash = "2ca97ce2c9fcd13830a5a6228d2f76e0";
+const apikey = process.env.REACT_APP_API_KEY;
+const hash = process.env.REACT_APP_HASH_KEY;
 
 function Home() {
   const [heros, setHeros] = useState([]);
@@ -74,13 +74,7 @@ function Home() {
             <s.Button onClick={handleNext}>Proximo</s.Button>
           </div>
         </s.List>
-        <s.Footer>
-          <div>
-            <img src={logo} alt="Logo Marvel" />
-            <p>Feito com toda a dedicação.</p>
-            <span>Todos os Direitos Reservados.</span>
-          </div>
-        </s.Footer>
+        <Footer />
       </s.Container>
     </>
   );

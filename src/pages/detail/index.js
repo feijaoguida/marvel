@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import "dotenv";
 
 import api from "../../services/api";
+import Footer from "../../componets/footer";
 
 import * as s from "./styles";
 
-const apikey = "9bfc4efda5e11865aab4ab84b6dba4a9";
-const hash = "2ca97ce2c9fcd13830a5a6228d2f76e0";
+const apikey = process.env.REACT_APP_API_KEY;
+const hash = process.env.REACT_APP_HASH_KEY;
 
 function Detail({ match }) {
   const [hero, setHero] = useState([]);
@@ -30,10 +31,7 @@ function Detail({ match }) {
           <s.ContentText>
             <s.Paragraph>
               UMA LISTA COM SEUS HEROIS MARVEL FAVORITOS.
-              --- AGUARDE AINDA EM CONSTRUÇÃO ---
             </s.Paragraph>
-            <s.Button>Veja Mais...</s.Button>
-            <s.Button>Marvel.com</s.Button>
           </s.ContentText>
         </s.Header>
         <s.ContainerList>
@@ -60,7 +58,9 @@ function Detail({ match }) {
                     </s.TheDescription>
                   </s.Description>
                   <s.Items>
-                    <s.TitleItems>Comics</s.TitleItems>
+                    <s.TitleItems>
+                      {!theHero.comics.items.length > 0 ? "" : "Comics"}
+                    </s.TitleItems>
                     <s.BodyItems>
                       <s.List>
                         {theHero.comics.items.map((comics) => (
@@ -70,7 +70,9 @@ function Detail({ match }) {
                     </s.BodyItems>
                   </s.Items>
                   <s.Items>
-                    <s.TitleItems>Series</s.TitleItems>
+                    <s.TitleItems>
+                      {!theHero.comics.items.length > 0 ? "" : "Series"}
+                    </s.TitleItems>
                     <s.BodyItems>
                       <s.List>
                         {theHero.series.items.map((series) => (
@@ -84,7 +86,9 @@ function Detail({ match }) {
             ))}
           </s.List>
         </s.ContainerList>
-        <Link to="/">Voltar</Link>
+
+        <s.Linked to="/">Voltar</s.Linked>
+        <Footer />
       </s.Container>
     </>
   );
