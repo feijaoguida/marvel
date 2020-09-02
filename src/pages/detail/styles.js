@@ -83,13 +83,13 @@ export const List = styled.ul`
     border-radius: 5px;
     background-color: #fff;
 
-    -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
-    -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
-    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+    -webkit-box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.29);
+    box-shadow: 1px 1px 4px 2px rgba(0, 0, 0, 0.29);
   }
 `;
 
-export const ListItems = styled.li`
+export const ListItemsDetail = styled.li`
   display: flex;
   flex-direction: column;
   flex-basis: auto;
@@ -112,9 +112,11 @@ export const ListItems = styled.li`
     rgba(255, 255, 255, 1) 100%
   );
 
-  -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
-  -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
-  box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+  &:hover {
+    -webkit-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+    -moz-box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+    box-shadow: 2px 2px 5px 3px rgba(0, 0, 0, 0.29);
+  }
 `;
 
 export const DetailHeader = styled.div`
@@ -183,7 +185,12 @@ export const Linked = styled(Link)`
   position: relative;
   border: none;
   overflow: hidden;
-  margin-right: 10px;
+  margin: 10px;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  color: rgb(72, 72, 72);
+  display: flex;
 
   &:hover {
     opacity: 0.8;

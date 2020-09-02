@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import api from "../../services/api";
 
 import * as s from "./styles";
@@ -49,7 +48,7 @@ function Home() {
           <ul>
             {heros.map((hero) => (
               <li key={hero.id}>
-                <Link to={`/detail/${hero.id}`}>
+                <s.Linked to={`/detail/${hero.id}`}>
                   <s.CardHeader>
                     <img
                       src={`${hero.thumbnail.path}/landscape_medium.${hero.thumbnail.extension}`}
@@ -58,7 +57,7 @@ function Home() {
                     <span>Nome: {hero.name} </span>
                     <br />
                   </s.CardHeader>
-                </Link>
+                </s.Linked>
 
                 <p>
                   Descrição:{" "}

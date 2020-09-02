@@ -64,7 +64,7 @@ function Detail({ match }) {
                     <s.BodyItems>
                       <s.List>
                         {theHero.comics.items.map((comics) => (
-                          <s.ListItems>{comics.name}</s.ListItems>
+                          <s.ListItemsDetail>{comics.name}</s.ListItemsDetail>
                         ))}
                       </s.List>
                     </s.BodyItems>
@@ -76,7 +76,7 @@ function Detail({ match }) {
                     <s.BodyItems>
                       <s.List>
                         {theHero.series.items.map((series) => (
-                          <s.ListItems>{series.name}</s.ListItems>
+                          <s.ListItemsDetail>{series.name}</s.ListItemsDetail>
                         ))}
                       </s.List>
                     </s.BodyItems>

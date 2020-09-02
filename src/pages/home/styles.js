@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import fundo from "../../assets/images/newcom_0603_com_mas_dsk_01.jpg";
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
   width: 100%;
@@ -98,6 +99,10 @@ export const List = styled.div`
     width: 100%;
     max-width: 1100px;
   }
+`;
+
+export const Linked = styled(Link)`
+  text-decoration: none;
 `;
 
 export const CardHeader = styled.div`
